@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/cb6e07c0b2.js" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            width: 250px;
+            border: 1px  black;
+            margin-left: 400px;
+            margin-top: 80px;
+        }
+        .container2{
+            width: 250px;
+
+        }
+        .text{
+            width: 220px;
+            height: 30px;
+            margin-top: 2px;
+        }
+        #check{
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            
+            
+        }
+        #box{
+            display: flex;
+            font-size: 10px;
+        }
+        #keep{
+            margin-top: 7px;
+            margin-left: 10px;
+            color: black;
+        }
+        .button{
+            width: 220px;
+            height: 35px;
+            background-color: #95c96f;
+            color: white;
+        }
+        #vl{
+            border-left: 1px solid black;
+            height: 450px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 80px;
+        }
+        #img{
+            margin-top: 15px;
+        }
+        .tx{
+            margin-top: 18px;
+        }
+        .ab{
+            margin-top: 200px;
+        }
+        .right{
+            position: absolute;
+            left: 52%;
+            margin-top: -20px;
+            top: 80px;
+        }
+        .font{
+            font-size: 15px;
+        }
+        #rt{
+            display: flex;
+            font-size: 20px;
+        }
+        #rt>h5{
+           
+            margin-left: 20px;
+            margin-top: -1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign in</h2>
+        <p class="font">Sign in to your Kohls.com account to shop,
+            check out or track your order.</p>
+            <form id="myform" action="">
+                <h3>Email Address</h3>
+                <input id="email" class="text" type="email"/>
+                <h3>Password</h3>
+                <input id="pass" class="text" type="password"/><br><br>
+                <div id="box">
+                    <input id="check" type="checkbox"><h3 id="keep">Keep me signed in</h3>
+                    <a href=""><p id="keep">Forgot password?</p></a>
+                </div>
+                <p>Check this box to stay signed in on this device. Recommended for devices that only you use.</p>
+                <input id="submit" class="button" type="submit" value="Sign in"><br><br>
+                <div id="vl"></div>
+                <div id="box">
+                    <div>
+                <img  id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI4OKtWY5cfM0iCy5qD6RvaQ_ikkkGY2586A&usqp=CAU" alt="" width="50px" height="40px">
+            </div>
+            <div >
+                <h3 class="tx">Looking for your Kohl's Card Account?</h3>
+                <a  href=""><p>Sign In to your Kohl's Card Account</p><a href="">Apply for a Kohl's Card.</a></a>
+            </div>
+            </div>    
+            </form>
+            <div class="right">
+                <div class="container2">
+                <h3>Create Account</h3>
+                <p class="font">With a Kohls.com account, enjoy exclusive,
+                    benefits that make shopping faster and easier!</p>
+                    <div id="rt">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h5>Enjoy Express Checkout</h5>
+                </div>
+                <div id="rt">
+                    <i class="fas fa-gifts"></i>
+                    <h5>See your Kohl's Rewards</h5>
+                </div>
+                <div id="rt">
+                    <i class="fas fa-money-bill"></i>
+                    <h5>Print Kohl's Cash</h5>
+                </div>
+                <div id="rt">
+                    <i class="fas fa-truck-moving"></i>
+                    <h5>Track orders easily</h5>
+                </div>
+               
+                <a href="createaccount.html"> <button class="button">CREATE ACCOUNT</button></a>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("#myform").addEventListener("submit", Login)
+        var sigin = JSON.parse(localStorage.getItem("shoppingitem"))
+        // var user = []
+        function Login(){
+            var email = document.querySelector("#email").value;
+            var pass = document.querySelector("#pass").value;
+            var userred = {
+                email: email,
+                pass: pass
+            }
+            var count = 0
+            // user.push(userred)
+            // localStorage.setItem("userdata",JSON.stringify(user))
+            for(var i = 0; i<sigin.length; i++){
+                if(sigin[i].email == email && sigin[i].pass == pass){
+                    count++
+                    
+                    
+                    
+                    
+                }
+                
+            }
+            if(count !=0){
+                // window.location.href = "product.html"
+                alert("login Succesful")
+            }
+            else{
+                alert("login un-Succesful")
+            }
+
+        }
+</script>
